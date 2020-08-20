@@ -3,41 +3,51 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| passward | string | null: false |
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| name            | string | null: false |
+| email           | string | null: false |
+| passward        | string | null: false |
+| first-name      | string | null: false |
+| last-name       | string | null: false |
+| first-name-kana | string | null: false |
+| last-name-kana  | string | null: false |
+| birth           | date   | null: false |
 
 ### Association
 - has_many :items
-- has_one :buyers
+- has_one :buyer
 
 ## items　テーブル
 
 | Column      | Type   | Options     |
 | ----------- | ------ | ----------- |
 | image       | string | null: false |
-| item-name   | string | null: false |
-| item-info   | string | null: false |
+| name        | string | null: false |
+| explain     | string | null: false |
+| category    | string | null: false |
+| status      | string | null: false |
+| fee         | string | null: false |
+| prefecture  | string | null: false |
+| schedule    | string | null: false |
 | price       | string | null: false |
 
 ### Association
--beoongs_to :users
+- beoongs_to :user
+- has_one :buyer
 
 ## buyers　テーブル
 
 | Column          | Type   | Options     |
 | --------------- | ------ | ----------- |
-| first-name      | string | null: false |
-| last-name       | string | null: false |
-| first-name-kana | string | null: false |
-| last-name-kana  | string | null: false |
-| birth           | string | null: false |
+| users_id        | string | null: false |
+| items_id        | string | null: false |
+| adresss_id      | string | null: false |
 
 ### Association
-has_one :adresses
-belongs_to :users
+belongs_to :item
+belongs_to :user
+has_one :address
 
 ## address　テーブル
 
@@ -47,11 +57,11 @@ belongs_to :users
 | prefecture   | string | null: false |
 | city         | string | null: false |
 | addresses    | string | null: false |
-| building     | string | null: true  |
+| building     | string |             |
 | phone-number | string | null: false |
 
 ### Association 
-belongs_to :buyers
+belongs_to :buyer
 
 
 This README would normally document whatever steps are necessary to get the
