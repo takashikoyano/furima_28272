@@ -51,14 +51,14 @@ has_one :address
 
 ## address　テーブル
 
-| Column       | Type     | Options     |
-| ------------ | -------- | ----------- |
-| postal       | string   | null: false |
-| prefecture   | integer  | null: false |
-| city         | string   | null: false |
-| addresses    | string   | null: false |
-| building     | string   |             |
-| phone-number | string   | null: false |
+| Column       | Type     | Options                        |
+| ------------ | -------- | ------------------------------ |
+| postal       | string   | null: false, foreign_key: true |
+| prefecture   | integer  | null: false, foreign_key: true |
+| city         | string   | null: false, foreign_key: true |
+| addresses    | string   | null: false, foreign_key: true |
+| building     | string   |              foreign_key: true |
+| phone-number | string   | null: false, foreign_key: true |
 
 ### Association 
 belongs_to :buyer
