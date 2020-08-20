@@ -20,18 +20,18 @@
 
 ## items　テーブル
 
-| Column        | Type     | Options                       |
-| ------------- | -------- | ----------------------------- |
-| image         | string   | null: false                   |
-| name          | string   | null: false                   |
-| explain       | string   | null: false                   |
-| category      | intenger | null: false                   |
-| status        | intenger | null: false                   |
-| fee           | intenger | null: false                   |
-| prefecture    | string   | null: false                   |
-| schedule      | intenger | null: false                   |
-| price         | intenger | null: false                   |
-| user_id       | intenger | null] false, foeign_key: true |
+| Column        | Type    | Options                       |
+| ------------- | ------- | ----------------------------- |
+| image         | string  | null: false                   |
+| name          | string  | null: false                   |
+| explain       | string  | null: false                   |
+| category      | integer | null: false                   |
+| status        | integer | null: false                   |
+| fee           | integer | null: false                   |
+| prefecture    | integer | null: false                   |
+| schedule      | integer | null: false                   |
+| price         | integer | null: false                   |
+| user_id       | integer | null] false, foeign_key: true |
 
 ### Association
 - beoongs_to :user
@@ -41,8 +41,8 @@
 
 | Column          | Type     | Options                        |
 | --------------- | -------- | ------------------------------ |
-| users_id        | intenger | null: false, foreign_key: true |
-| items_id        | intenger | null: false, foreign_key: true |
+| users_id        | integer | null: false, foreign_key: true |
+| items_id        | integer | null: false, foreign_key: true |
 
 ### Association
 belongs_to :item
@@ -51,14 +51,14 @@ has_one :address
 
 ## address　テーブル
 
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| postal       | string | null: false |
-| prefecture   | string | null: false |
-| city         | string | null: false |
-| addresses    | string | null: false |
-| building     | string |             |
-| phone-number | string | null: false |
+| Column       | Type     | Options     |
+| ------------ | -------- | ----------- |
+| postal       | string   | null: false |
+| prefecture   | integer  | null: false |
+| city         | string   | null: false |
+| addresses    | string   | null: false |
+| building     | string   |             |
+| phone-number | string   | null: false |
 
 ### Association 
 belongs_to :buyer
