@@ -20,17 +20,18 @@
 
 ## items　テーブル
 
-| Column      | Type     | Options     |
-| ----------- | -------- | ----------- |
-| image       | string   | null: false |
-| name        | string   | null: false |
-| explain     | string   | null: false |
-| category    | intenger | null: false |
-| status      | intenger | null: false |
-| fee         | intenger | null: false |
-| prefecture  | intenger | null: false |
-| schedule    | intenger | null: false |
-| price       | intenger | null: false |
+| Column        | Type     | Options                       |
+| ------------- | -------- | ----------------------------- |
+| image         | string   | null: false                   |
+| name          | string   | null: false                   |
+| explain       | string   | null: false                   |
+| category      | intenger | null: false                   |
+| status        | intenger | null: false                   |
+| fee           | intenger | null: false                   |
+| prefecture_id | intenger | null: false                   |
+| schedule      | intenger | null: false                   |
+| price         | intenger | null: false                   |
+| user_id       | intenger | null] false, foeign_key: true |
 
 ### Association
 - beoongs_to :user
