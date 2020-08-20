@@ -28,7 +28,7 @@
 | category      | intenger | null: false                   |
 | status        | intenger | null: false                   |
 | fee           | intenger | null: false                   |
-| prefecture_id | intenger | null: false                   |
+| prefecture    | string   | null: false                   |
 | schedule      | intenger | null: false                   |
 | price         | intenger | null: false                   |
 | user_id       | intenger | null] false, foeign_key: true |
