@@ -16,21 +16,21 @@
 
 ### Association
 - has_many :items
-- has_one :buyer
+- has_many :buyers
 
 ## items　テーブル
 
-| Column      | Type   | Options     |
-| ----------- | ------ | ----------- |
-| image       | string | null: false |
-| name        | string | null: false |
-| explain     | string | null: false |
-| category    | string | null: false |
-| status      | string | null: false |
-| fee         | string | null: false |
-| prefecture  | string | null: false |
-| schedule    | string | null: false |
-| price       | string | null: false |
+| Column      | Type     | Options     |
+| ----------- | -------- | ----------- |
+| image       | string   | null: false |
+| name        | string   | null: false |
+| explain     | string   | null: false |
+| category    | intenger | null: false |
+| status      | intenger | null: false |
+| fee         | intenger | null: false |
+| prefecture  | intenger | null: false |
+| schedule    | intenger | null: false |
+| price       | intenger | null: false |
 
 ### Association
 - beoongs_to :user
@@ -38,11 +38,10 @@
 
 ## buyers　テーブル
 
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| users_id        | string | null: false |
-| items_id        | string | null: false |
-| adresss_id      | string | null: false |
+| Column          | Type     | Options                        |
+| --------------- | -------- | ------------------------------ |
+| users_id        | intenger | null: false, foreign_key: true |
+| items_id        | intenger | null: false, foreign_key: true |
 
 ### Association
 belongs_to :item
