@@ -41,8 +41,8 @@
 
 | Column          | Type     | Options                        |
 | --------------- | -------- | ------------------------------ |
-| users_id        | integer | null: false, foreign_key: true |
-| items_id        | integer | null: false, foreign_key: true |
+| user_id        | integer | null: false, foreign_key: true |
+| item_id        | integer | null: false, foreign_key: true |
 
 ### Association
 belongs_to :item
@@ -59,7 +59,7 @@ has_one :address
 | addresses    | string   | null: false,                   |
 | building     | string   |                                |
 | phone-number | string   | null: false,                   |
-| users_id     | integer  | null: false, foreign_key: true |
+| buyer_id     | integer  | null: false, foreign_key: true |
 ### Association 
 belongs_to :buyer
 
