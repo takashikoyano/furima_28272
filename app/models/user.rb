@@ -7,7 +7,6 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :buyers
-         
-  validates :name, :firstname, :lastname, :firstnamekana, :lastnamekana, :birth, presence: true
 
+  validates :name, :firstname, :lastname, :firstnamekana, :lastnamekana, :birth, presence: true
 end
