@@ -1,33 +1,49 @@
-require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe '新規登録' do
-    it "ニックネームが必須であること" do
+  describe '#create' do
+    before do
+      @user = FactoryBot.build(:user)
     end
-    it "メールアドレスが必須であること" do
+
+    it "nicknameが空では登録できないこと" do
+      @user.name = ''
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
-    it "メールアドレスが一意性であること" do
+
+    it "emailが空では登録できないこと" do
+      @user.email = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email can't be blank")
     end
-    it "メールアドレスが@を含む必要があること" do
+
+    it "重複したemailが存在する場合登録できない" do
+      @user.save
+      another_user = FactoryBot.build(:user)
+      another_user.email = @user.email
+      another_user.valid?
+      expect(another_user.errors.full_messages).to include("Email has already been taken")
     end
-    it "パスワードが必要であること" do
+
+    it "passwordが空では登録できない" do
+      @user.password = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password can't be blank")
     end
-    it "パスワードは６文字以上であること" do
+
+    it "passwordが5文字以下であれば登録できない" do
+      @user.password = "00000"
+      @user.password_confirmation = "00000"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
     end
-    it "パスワードは半角英数字混合であること" do
+
+    it "passwordが存在してもpassword confirmationが空では登録できない" do
+      @user.password_confirmation = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
-    it "パスワードは確認用も含めて２回入力すること" do
-    end
-    it "ユーザー本名が、名字と名前がそれぞれ必須であること" do
-    end
-    it "ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力させること" do
-    end
-    it "ユーザー本名のフリガナが、名字と名前でそれぞれ必須であること" do
-    end
-    it "ユーザー本名のフリガナは全角（カタカナ）で入力させること" do
-    end
-    it "生年月日が必須であること" do
-    end
-    
+
+   
   end
 end
